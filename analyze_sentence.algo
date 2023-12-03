@@ -1,0 +1,45 @@
+ALGORITHM analyze_sentence
+VAR
+    str: STRING : = "";
+    X, Y, Z : INTEGER := 0; //X for character count, Y for words count, Z for vowels count
+    vowels : ARRAY_OF CHAR := ['a', 'e', 'i', 'o', 'u'];
+    inWord : BOOLEAN := FALSE;  // Flag to track if currently inside a word 
+    i : INTEGER;
+
+BEGIN
+
+    // Analyze the sentence
+
+    FOR i FROM 1 TO LENGTH(str) DO 
+    // Count characters (excluding spaces)
+    IF str[i] = ' ' THEN 
+    X++ (X := X + 1);
+    END_IF
+
+    // Count words
+    IF str[i] == ' ' THEN 
+    IF inWord THEN 
+    Y := Y + 1 ;
+    inWord := FALSE; // Set the flag to indicate outside of a word 
+    END_IF
+    ELSE 
+    inWord := TRUE; // Set the flag to indicate inside a word 
+    END_IF
+
+    // Count vowels
+    IF STR[i] IN vowels THEN 
+    Z++;
+    END_IF
+
+    END_FOR 
+
+    // Increment word count for the last word 
+    IF inWord THEN 
+    Y := Y + 1;
+    END_IF 
+
+    Write (X);
+    Write (Y);
+    Write (Z);
+    
+END
