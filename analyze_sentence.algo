@@ -1,6 +1,6 @@
 ALGORITHM analyze_sentence
 VAR
-    str: STRING : = "";
+    str: STRING : = "Close the window that hurts you no matter how beautiful the view is.";
     X, Y, Z : INTEGER := 0; //X for character count, Y for words count, Z for vowels count
     vowels : ARRAY_OF CHAR := ['a', 'e', 'i', 'o', 'u'];
     inWord : BOOLEAN := FALSE;  // Flag to track if currently inside a word 
